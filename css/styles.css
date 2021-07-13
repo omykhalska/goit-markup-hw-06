@@ -206,6 +206,10 @@ p {
   align-items: flex-start;
 }
 
+.address {
+  width: 100%;
+}
+
 .footer-logo {
   display: inline-block;
   margin-bottom: 20px;
@@ -286,7 +290,7 @@ p {
 
 .subscription {
   margin-top: 15px;
-  margin-left: 92px;
+  margin-left: 93px;
 }
 
 .subscription-form {
