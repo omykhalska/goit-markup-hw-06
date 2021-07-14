@@ -24,7 +24,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* ========== Components ============*/
+/* ========== COMPONENTS ============*/
 h1,
 h2,
 h3,
@@ -58,8 +58,19 @@ p {
   display: inline-block;
   border: none;
   border-radius: 4px;
-  overflow:hidden;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 /* ========== SECTION ========== */
@@ -309,18 +320,27 @@ p {
   background-color: transparent;
   font-size: 16px;
   line-height: 1.25;
+  color: var(--secondary-text-color);
+}
+
+.subscription-form-input::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
 .subscription-form-btn {
   min-width: 200px;
-  padding: 10px 28px;
+  min-height: 50px;
+  padding: 10px;
   margin-left: 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.subscription-form-icon {
+  margin-left: 10px;
 }
 
 /* ========== HERO ========== */
@@ -363,7 +383,8 @@ p {
 }
 
 .modal-btn,
-.subscription-form-btn {
+.subscription-form-btn,
+.application-form-btn {
   background-color: var(--accent-color);
   color: var(--secondary-text-color);
   font-family: var(--main-font);
@@ -378,7 +399,9 @@ p {
 .modal-btn:hover,
 .modal-btn:focus,
 .subscription-form-btn:hover,
-.subscription-form-btn:focus {
+.subscription-form-btn:focus,
+.application-form-btn:hover,
+.application-form-btn:focus {
   background-color: var(--button-hover-color);
 }
 
@@ -684,7 +707,7 @@ p {
   transition: transform 250ms ease-in-out;
   width: 528px;
   height: 580px;
-  padding: 8px;
+  padding: 40px;
   background-color: var(--secondary-text-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
     0 2px 1px rgba(0, 0, 0, 0.2);
@@ -711,4 +734,140 @@ p {
   background: var(--secondary-text-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+.modal-close-btn:hover, 
+.modal-close-btn:focus .modal-close-btn-icon {
+  fill: var(--accent-color);
+
+}
+
+.application-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.application-form-head {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--title-color);
+}
+
+.application-form-field {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.application-form-wrapper {
+  position: relative;
+  display: block;
+  margin-top: 4px;
+}
+
+.application-form-input {
+  width: 100%;
+  height: 40px;
+  padding-left: 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color 250ms var(--transition);
+}
+
+.application-form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.application-form-input:focus + .application-form-icon {
+  fill: var(--accent-color);
+}
+
+.application-form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+
+.application-form-comment {
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.application-form-textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  padding: 12px 16px;
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color 250ms var(--transition);
+}
+
+.application-form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.application-form-textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.application-form-checkbox-wrap {
+  position: relative;
+  align-self: center;
+  padding-left: 23px;
+  margin-bottom: 30px;
+}
+
+.application-form-checkbox-label::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--title-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms var(--transition);
+}
+
+.application-form-checkbox:checked + .application-form-checkbox-label::before {
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
+  background-color: var(--accent-color);
+  background-origin: border-box;
+  border: none;
+}
+
+.application-form-checkbox:focus + .application-form-checkbox-label::before {
+  border: 2px solid var(--accent-color);
+}
+
+.accept-policy-link {
+  color: var(--accent-color);
+}
+
+.application-form-btn {
+  align-self: center;
+  min-width: 200px;
+  min-height: 50px;
+  padding: 10px;
+  text-align: center;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 }
