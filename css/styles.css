@@ -736,10 +736,9 @@ p {
   cursor: pointer;
 }
 
-.modal-close-btn:hover, 
+.modal-close-btn:hover,
 .modal-close-btn:focus .modal-close-btn-icon {
   fill: var(--accent-color);
-
 }
 
 .application-form {

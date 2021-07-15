@@ -81,7 +81,7 @@
       <!-- FEATURES -->
       <section class="features section">
         <div class="container">
-          <h2 hidden>Преимущества WebStudio</h2>
+          <h2 class="visually-hidden">Преимущества WebStudio</h2>
           <ul class="features-list grid-wrapper list">
             <li class="features-item grid-item">
               <div class="icon-container">
@@ -500,7 +500,7 @@
                 class="application-form-input"
                 name="client-name"
                 minlength="2"
-                pattern="[a-zA-Zа-яёА-ЯЁ]+"
+                pattern="[a-zA-Zа-яёіїєА-ЯЁІЇЄ]+"
                 title="для ввода имени разрешается применять символы кириллицы и латиницы с учетом регистра"
                 required
               />
@@ -551,20 +551,22 @@
 
           <div class="application-form-checkbox-wrap">
             <input
-              type="checkbox"
               class="application-form-checkbox visually-hidden"
-              name="accept-policy"
               id="accept-policy-checkbox"
+              name="accept-policy"
+              type="checkbox"
               value="accepted"
               required
             />
-            <label for="accept-policy-checkbox" class="application-form-checkbox-label"
+            <label
+              class="application-form-checkbox-label"
+              for="accept-policy-checkbox"
               >Соглашаюсь с рассылкой и принимаю
-              <a href="#" class="accept-policy-link">Условия договора</a>
+              <a class="accept-policy-link" href="#">Условия договора</a>
             </label>
           </div>
 
-          <button type="submit" class="application-form-btn button">
+          <button class="application-form-btn button" type="submit">
             Отправить
           </button>
         </form>
